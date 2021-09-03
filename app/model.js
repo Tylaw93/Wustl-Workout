@@ -41,7 +41,7 @@ export default {
   createUser(newUser) {
     const errors = validate(newUser);
     if (errors.length) {
-      throw new Error(`User error: ${errors.join(", ")}`);
+      throw new Error(`User error: ${errors.join("")}`);
     }
 
     return { ...newUser, ...withFullName(newUser) };
