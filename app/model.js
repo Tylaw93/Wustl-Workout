@@ -32,8 +32,6 @@ const validate = (state) => {
   return ret;
 };
 
-// TODO: Add a createdAt property
-
 const withFullName = (state) => ({
   ...state,
   fullName: `${state.firstName} ${state.lastName}`,
