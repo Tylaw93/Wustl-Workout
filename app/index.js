@@ -6,14 +6,12 @@ import apiRouter from "./router.js";
 
 const app = express();
 
-app.get("/", (_, res) => {
-  res.send("Hello World");
-});
+
 
 // Logging middleware
 app.use(morgan("dev"));
 
-app.use(express.json());
+app.use(express.json("public"));
 app.use("/api", apiRouter);
 
 app.listen(config.port, () => {
