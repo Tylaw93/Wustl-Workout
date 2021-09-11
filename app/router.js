@@ -4,6 +4,10 @@ import userModel from "./model.js";
 
 const router = new Router();
 
+router.get("/", (_, res) => {
+  res.send("Hello ApI");
+});
+
 router.post("/", async (req, res) => {
   try {
     const validatedUser = userModel.createUser(req.body);
