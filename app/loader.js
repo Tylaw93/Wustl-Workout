@@ -1,8 +1,9 @@
-// Loads a reusable Mongo client for the application.
 import { MongoClient } from "mongodb";
 import config from "./config.js";
 
-const client = new MongoClient(config.db);
+const client = new MongoClient(
+  "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000"
+);
 
 client
   .connect()
@@ -12,7 +13,6 @@ client
   .catch((err) => {
     console.error("Error starting MongoDB Client", err.message);
 
-    // Exit process with failure
     process.exit(1);
   });
 

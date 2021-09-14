@@ -1,4 +1,3 @@
-// Entry point for the application
 import express from "express";
 import morgan from "morgan";
 import config from "./config.js";
@@ -6,7 +5,6 @@ import router from "./router.js";
 
 const app = express();
 
-// Logging middleware
 app.use(morgan("dev"));
 
 app.use(express.static("public", { extensions: ["html"] }));
