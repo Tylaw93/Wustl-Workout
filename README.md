@@ -1,24 +1,91 @@
-# Node Starter
+# Unit 18 Nosql Homework: Workout Tracker
 
-## TLDR
+## Your Task
 
-Use of this starter template assumes that you have a 'complete dev environment' setup - a terminal, Node, VS Code, at least. If not, you may want to [start here.](https://www.notion.so/codefinity/Setting-up-a-Local-Dev-Environment-for-JS-02a4e9f4a30043d3a8e7d109be3448f4)
+The task for this project was to create the back end of an exercise app using mongoDB. The instructions said to provide authentication through Mongoose, but we were instructed in class that there is a way to validate information by only using mongoDB. When the home page loads, you are shown the stats for the latest day of workouts. If you are revisiting from earlier in the day, you will see the current day's stats. You are then able to create a new workout or to add exercises to the current workout. Once the data is input, you are able to go to the dashboard page and see charts containing the total weight and duration for the last 7 workouts.
 
-1. Click that big green button to start using it.
-2. `clone` your new repo from your GitHub to your local computer
-3. `cd` into the `clone`d repo and enter: `npm i`.
-4. `npm start`
+The acceptance criteria are as follows below.
 
-## Some of What's Included
+## Acceptance Criteria
 
-- [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-- Various VS Code 'settings' and 'extensions.' Look in the bottom right when you open this up in VS Code to install them.
+```md
+When the user loads the page, they should be given the option to create a new workout or continue with their last workout.
 
-## How To Use
+The user should be able to:
 
-Run `npm i` to get all the things installed.
+- Add exercises to the most recent workout plan.
 
-`npm start` will watch the `app` directory for any changes using `nodemon`
+- Add new exercises to a new workout plan.
 
-Starter files for config, controller, loader and router are included. You may want to
-turn these into directories depending on the complexity of your app.
+- View the combined weight of multiple exercises from the past seven workouts on the `stats` page.
+
+- View the total duration of each workout from the past seven workouts on the `stats` page.
+```
+
+GitHub: https://github.com/tylaw93/mongo-users
+
+# Background
+
+## Your Task
+
+# Unit 18 Nosql Homework: Workout Tracker
+
+For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.
+
+## User Story
+
+- As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.
+
+## Business Context
+
+A consumer will reach their fitness goals more quickly when they track their workout progress.
+
+## Acceptance Criteria
+
+When the user loads the page, they should be given the option to create a new workout or continue with their last workout.
+
+The user should be able to:
+
+- Add exercises to the most recent workout plan.
+
+- Add new exercises to a new workout plan.
+
+- View the combined weight of multiple exercises from the past seven workouts on the `stats` page.
+
+- View the total duration of each workout from the past seven workouts on the `stats` page.
+
+> **Important:** Look into using a MongoDB aggregate function to dynamically add up and return the total duration for each workout. Check out the [MongoDB documentation on the $addFields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/), the [MongoDB documentation on the $sum operator](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/), and the [Mongoose documentation on aggregate functions](https://mongoosejs.com/docs/api.html#aggregate_Aggregate) to learn how it can be accomplished.
+
+To deploy an application with a MongoDB database to Heroku, you'll need to set up a MongoDB Atlas account and connect a database from there to your application. Be sure to use the following guides for support:
+
+- [Set Up MongoDB Atlas](../04-Important/MongoAtlas-Setup.md)
+
+- [Deploy with Heroku and MongoDB Atlas](../04-Important/MongoAtlas-Deploy.md)
+
+## Commit Early and Often
+
+One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for the following two reasons:
+
+1. Your commit history is a signal to employers that you are actively working on projects and learning new skills.
+
+2. Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
+
+Follow these guidelines for committing:
+
+- Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
+
+- Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
+
+- Don't commit half-done work, for the sake of your collaborators (and your future self!).
+
+- Test your application before you commit to ensure functionality at every step in the development process.
+
+We want you to have well over 200 commits by graduation, so commit early and often!
+
+## Submission on BCS
+
+You are required to submit the following:
+
+- The URL to the deployed application
+
+- The URL to the GitHub repository
