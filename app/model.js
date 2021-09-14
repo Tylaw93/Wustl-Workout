@@ -1,49 +1,57 @@
 const validate = (state) => {
   const ret = [];
+  if (state.type === "cardio") {
+    if (!state.distance) {
+      ret.push("Exercise distance is required");
+    }
+  } else if (state.type === "resistance") {
+    if (!state.sets) {
+      ret.push("Exercise sets are required");
+    }
 
-  if (!state.firstName) {
-    ret.push("First name is required!");
+    if (!state.reps) {
+      ret.push("Exercise reps is required");
+    }
+
+    if (!state.weight) {
+      ret.push("Exercise weight is required");
+    }
+  } else if (!state.type) {
+    ret.push("Exercise type is required");
   }
 
-  if (!state.lastName) {
-    ret.push("Last name is required!");
+  if (!state.name) {
+    ret.push("Exercise name is required");
   }
 
-  if (!state.username) {
-    ret.push("Username is required!");
-  }
-
-  if (!state.email) {
-    ret.push("Email is required!");
-  }
-
-  if (!state.email?.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)) {
-    ret.push("Email is invalid!");
-  }
-
-  if (!state.password) {
-    ret.push("Password is required!");
-  }
-
-  if (state.password?.length < 6) {
-    ret.push("Password must be at least 6 characters!");
+  if (!state.duration) {
+    ret.push("Exercise duration is required");
   }
 
   return ret;
 };
 
-const withFullName = (state) => ({
+const validateNum = (state) => ({
   ...state,
-  fullName: `${state.firstName} ${state.lastName}`,
+  distance: Number(state.distance),
+  sets: Number(state.sets),
+  reps: Number(state.reps),
+  weight: Number(state.weight),
 });
 
 export default {
-  createUser(newUser) {
-    const errors = validate(newUser);
+  createExercise(workout, newExercise) {
+    const errors = validate(newExercise);
     if (errors.length) {
-      throw new Error(`User error: ${errors.join("")}`);
+      throw new Error(`User error: ${errors.join(", ")}`);
     }
 
-    return { ...newUser, ...withFullName(newUser) };
+    return {
+      ...workout,
+      exercises: [
+        ...workout.exercises,
+        { ...newExercise, ...validateNum(newExercise) },
+      ],
+    };
   },
 };
