@@ -1,9 +1,7 @@
 import { MongoClient } from "mongodb";
 import config from "./config.js";
 
-const client = new MongoClient(
-  "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000"
-);
+const client = new MongoClient(config.db);
 
 client
   .connect()
