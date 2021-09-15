@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 import client from "./loader.js";
 import workoutModel from "./model.js";
 
-const workoutController = client.db("workout_db").collection("workouts");
+const workoutController = client.db("workoutDB").collection("workouts");
 
 export default {
   index() {
